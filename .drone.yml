@@ -7,13 +7,6 @@ platform:
   os: linux
 
 steps:
-- name: build
-  image: golang:1.10
-  commands:
-  - cd posix
-  - tar -xf fixtures.tar -C /
-  - go test -v
-
 - name: docker-prod-push
   image: plugins/docker
   environment:
