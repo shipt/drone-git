@@ -20,7 +20,6 @@ if [[ -z "${DRONE_COMMIT_BRANCH}" ]]; then
 	set -x
 	git fetch origin
 	git checkout -qf ${DRONE_COMMIT_SHA}
-	git clean -dfx
 	exit 0
 fi
 
@@ -31,8 +30,7 @@ if [[ -z "${DRONE_COMMIT_SHA}" ]]; then
 	set -e
 	set -x
 	git fetch ${FLAGS} origin +refs/heads/${DRONE_COMMIT_BRANCH}:
-	git checkout -B ${DRONE_COMMIT_BRANCH} origin/${DRONE_COMMIT_BRANCH}
-	git clean -dfx
+	git checkout -b ${DRONE_COMMIT_BRANCH} origin/${DRONE_COMMIT_BRANCH}
 	exit 0
 fi
 
@@ -40,5 +38,4 @@ set -e
 set -x
 
 git fetch ${FLAGS} origin +refs/heads/${DRONE_COMMIT_BRANCH}:
-git checkout ${DRONE_COMMIT_SHA} -B ${DRONE_COMMIT_BRANCH}
-git clean -dfx
+git checkout ${DRONE_COMMIT_SHA} -b ${DRONE_COMMIT_BRANCH}
