@@ -14,6 +14,9 @@ if [[ -n "${DRONE_WORKSPACE}" ]]; then
 	cd ${DRONE_WORKSPACE}
 fi
 
+# make cache directory
+mkdir -p /cache/${DRONE_REPO}/docker
+
 # force the home directory path.
 
 # if [ "$HOME" != "/home/drone" ]; then
