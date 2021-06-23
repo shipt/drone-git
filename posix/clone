@@ -101,3 +101,9 @@ tag)
 	clone-commit
 	;;
 esac
+
+# clean
+git clean -dfx
+
+# report
+git status
