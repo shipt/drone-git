@@ -14,6 +14,9 @@ if [[ -n "${DRONE_WORKSPACE}" ]]; then
 	cd ${DRONE_WORKSPACE}
 fi
 
+# nuke it from orbit, it's the only way to be sure
+rm -rf * .*
+
 # make cache directory
 mkdir -p /cache/${DRONE_REPO}/docker
 
